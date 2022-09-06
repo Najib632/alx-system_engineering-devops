@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -RAp | grep / | grep -v ':' | wc -l
