@@ -1,0 +1,37 @@
+What happens when you type google.com in your browser and press Enter
+
+In a world where information is at our fingertips, typing https://www.google.com into your browser and hitting Enter is like opening a portal to endless knowledge. But what magic happens before the search results appear?
+
+Understanding the architecture that supports our online experiences is more crucial than ever in the digital age. From how secure connections are ensured to efficient management of data, each component plays a vital role in delivering information swiftly and safely.
+
+In this article, we will explore how human-readable domain names are translated into IP addresses, allowing browsers to load internet resources. We will have a better understanding of the intricate processes involved when accessing a website, covering key elements such as DNS requests, TCP/IP protocols, firewalls, HTTPS/SSL security, load balancers, web servers, application servers, and databases.
+
+DNS requests
+It all starts with your browser sending a Domain Name System (DNS) request or query to a DNS server that will resolve the domain name "google.com" into a corresponding Internet Protocol (IP) address of the hosting server. This process involves several steps, including querying multiple DNS servers until the correct IP address is found, allowing your browser to connect to Google’s servers and fetch the desired content.
+
+TCP/IP
+Once the IP address is obtained, the browser establishes a TCP connection to the web server at that address, specifically targeting port 443, ensuring reliable communication between the client and the server. The Transmission Control Protocol (TCP) initiates a handshake process, confirming that both parties are ready to exchange data. This connection is essential for maintaining the information's integrity.
+
+Firewalls
+Before the request reaches the web server, it often passes through firewalls, which act as security barriers between trusted internal networks and untrusted external ones. Firewalls monitor incoming and outgoing traffic, filtering it based on predefined security rules. By blocking unauthorized access and potential threats, firewalls play a critical role in protecting sensitive data and maintaining the overall security of the network.
+
+HTTPS/SSL
+After the TCP connection is established, the next step involves activating HTTPS, which uses SSL (Secure Sockets Layer) or its successor, TLS (Transport Layer Security). During this phase, the browser and server perform an SSL/TLS handshake to verify each other’s identities and establish an encrypted connection. This encryption safeguards your data from potential eavesdroppers, ensuring that sensitive information, such as passwords and personal details, remains confidential throughout the communication.
+
+Traditionally, DNS queries and replies are performed over plaintext. They are sent over the Internet without any type of encryption or protection, even when you are accessing a secured website. This has a great impact on security and privacy, as these queries might be subject to surveillance, spoofing and tracking by malicious actors, advertisers, ISPs, and others. To enhance privacy and security, newer protocols like DNS over TLS (DoT) and DNS over HTTP (DoH) have been developed. These protocols encrypt DNS queries, preventing eavesdropping and tampering by ensuring that DNS requests are transmitted securely.
+
+DNS over TLS (DoT): By default, DNS is sent over a plaintext connection. DNS over TLS (DoT) is one way to send DNS queries over an encrypted connection. Cloudflare supports DNS over TLS on standard port 853 and is compliant with RFC 7858. With DoT, the encryption happens at the transport layer, where it adds TLS encryption on top of a TCP connection.
+
+DNS over HTTP (DoH): With DNS over HTTPS (DoH), DNS queries and responses are encrypted and sent via the HTTP or HTTP/2 protocols. DoH ensures that attackers cannot forge or alter DNS traffic. DoH uses port 443, which is the standard HTTPS traffic port, to wrap the DNS query in an HTTPS request. DNS queries and responses are camouflaged within other HTTPS traffic since they enter and exit from the same port.
+
+Load balancers
+Load balancers distribute incoming traffic across multiple servers, to ensure optimal resource utilization and prevent overload. This ensures that no single server becomes overwhelmed with requests, enhancing performance and reliability. By intelligently routing requests, load balancers help maintain quick response times, even at peak usage. They monitor server health, manage sessions, and provide high availability by seamlessly routing requests to the most suitable server.
+
+Web Servers
+Once the load balancer directs your request to a specific web server, the server processes the request and retrieves the necessary information. Web servers primarily handle static content, such as HTML files, images, stylesheets, and JavaScript files. When a browser requests these resources, the web server responds over HTTP or HTTPS, typically connecting through port 443 for secure communications. This secure connection ensures that the data transferred between the client and the server is encrypted, safeguarding it from potential threats. The web server returns the requested content, which the browser renders for the user.
+
+Application Servers
+In contrast, application servers manage dynamic content and complex application logic. When a user interacts with an application, the application server processes these requests, runs the necessary code, and generates responses based on user input or database queries. Like web servers, application servers also connect through port 443 when using HTTPS, ensuring that all communication remains secure. This separation of duties between web servers and application servers optimizes performance, allowing optimal and rapid data delivery.
+
+Databases
+Interfacing the application servers are databases that store the vast amounts of information Google uses to provide relevant search results. When you enter a query, the application server interacts with the database to retrieve the most pertinent information. The interaction is seamless and rapid, enabling Google to return results in mere milliseconds.
